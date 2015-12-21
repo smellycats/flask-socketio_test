@@ -4,10 +4,10 @@ def on_response(*args):
     print('on_response', args)
 
 print 'test'
-socket = SocketIO('localhost', 5001)
-chat = socket.define(BaseNamespace, '/msg')
+socket = SocketIO('localhost', 5000)
+chat = socket.define(BaseNamespace, '/test')
 print 'test1'
-chat.emit('message')
+chat.emit('my event')
 chat.on('my response', on_response)
 
 ##from socketIO_client import SocketIO, BaseNamespace
