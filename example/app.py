@@ -53,7 +53,7 @@ def background_thread():
         time.sleep(10)
         count += 1
         socketio.emit('my response',
-                      {'data': 'Server generated event', 'count': count},
+                      {'data': u'死肥仔', 'count': count},
                       namespace='/test')
 
 
@@ -71,7 +71,7 @@ def index():
 def test_message(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     emit('my response',
-         {'data': u'死肥仔'+message['data'], 'count': session['receive_count']})
+         {'data': message['data'], 'count': session['receive_count']})
 
 
 @socketio.on('my broadcast event', namespace='/test')
